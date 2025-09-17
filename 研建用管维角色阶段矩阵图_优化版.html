@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研建用管维角色阶段矩阵图 - 优化版</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        /* 时序图样式 */
+        .sequence-diagram {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+        .sequence-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .sequence-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            height: 120px;
+        }
+        .sequence-role {
+            background: white;
+            border: 2px solid #34495e;
+            border-radius: 8px;
+            padding: 10px 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+            min-width: 80px;
+            position: relative;
+            z-index: 2;
+        }
+        .sequence-role.yan {
+            border-color: #3498db;
+            background-color: #e3f2fd;
+        }
+        .sequence-role.jian {
+            border-color: #e74c3c;
+            background-color: #ffebee;
+        }
+        .sequence-role.yong {
+            border-color: #f39c12;
+            background-color: #fff3e0;
+        }
+        .sequence-role.guan {
+            border-color: #34495e;
+            background-color: #f5f5f5;
+        }
+        .sequence-role.wei {
+            border-color: #9b59b6;
+            background-color: #f3e5f5;
+        }
+        .sequence-line {
+            position: absolute;
+            height: 2px;
+            background: #34495e;
+            z-index: 1;
+        }
+        .sequence-arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 8px solid #34495e;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+        .sequence-label {
+            position: absolute;
+            top: -25px;
+            font-size: 12px;
+            color: #7f8c8d;
+            white-space: nowrap;
+        }
+        
+        /* 矩阵表格样式 */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            min-width: 1200px;
+        }
+        .matrix-table th,
+        .matrix-table td {
+            border: 1px solid #ddd;
+            padding: 12px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+        .matrix-table th {
+            background-color: #34495e;
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .stage-header {
+            background-color: #2c3e50 !important;
+            color: white !important;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            padding: 15px 12px;
+            width: 180px;
+            min-width: 180px;
+        }
+        .task-row {
+            background-color: #f8f9fa;
+        }
+        .task-name {
+            text-align: left;
+            font-weight: 500;
+            color: #2c3e50;
+            padding: 10px 12px;
+            background-color: #ecf0f1;
+            border-right: 2px solid #bdc3c7;
+            width: 180px;
+            min-width: 180px;
+        }
+        .role-header {
+            background-color: #34495e;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            width: 100px;
+            min-width: 100px;
+        }
+        .role-cell {
+            width: 100px;
+            min-width: 100px;
+            vertical-align: middle;
+        }
+        .role-spacer {
+            width: 15px;
+            min-width: 15px;
+            background-color: #f8f9fa;
+            border: none;
+        }
+        .role-primary {
+            background-color: #e8f5e8;
+            border: 2px solid #27ae60;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .role-secondary {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #e67e22;
+        }
+        .role-support {
+            background-color: #d1ecf1;
+            border: 1px solid #17a2b8;
+            color: #0c5460;
+        }
+        .role-minimal {
+            background-color: #f8f9fa;
+            border: 1px solid #6c757d;
+            color: #6c757d;
+        }
+        .role-empty {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+        }
+        .role-text {
+            font-size: 12px;
+            line-height: 1.3;
+            margin: 2px 0;
+        }
+        .role-symbol {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .legend {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        .legend h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+        }
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+        }
+        .legend-text {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>研建用管维角色阶段矩阵图</h1>
+        
+        <div class="sequence-diagram">
+            <div class="sequence-title">角色间业务关系时序图</div>
+            <div class="sequence-container">
+                <div class="sequence-role yan">研<br>(研究/研发)</div>
+                <div class="sequence-role jian">建<br>(建设/构建)</div>
+                <div class="sequence-role yong">用<br>(使用/应用)</div>
+                <div class="sequence-role guan">管<br>(管理)</div>
+                <div class="sequence-role wei">维<br>(维护)</div>
+                
+                <!-- 业务关系线 -->
+                <div class="sequence-line" style="left: 12%; width: 15%; top: 50px;">
+                    <div class="sequence-arrow" style="right: 0; top: -4px;"></div>
+                    <div class="sequence-label" style="left: 50%; transform: translateX(-50%);">需求传递</div>
+                </div>
+                <div class="sequence-line" style="left: 37%; width: 15%; top: 50px;">
+                    <div class="sequence-arrow" style="right: 0; top: -4px;"></div>
+                    <div class="sequence-label" style="left: 50%; transform: translateX(-50%);">产品交付</div>
+                </div>
+                <div class="sequence-line" style="left: 62%; width: 15%; top: 50px;">
+                    <div class="sequence-arrow" style="right: 0; top: -4px;"></div>
+                    <div class="sequence-label" style="left: 50%; transform: translateX(-50%);">反馈收集</div>
+                </div>
+                <div class="sequence-line" style="left: 87%; width: 8%; top: 50px;">
+                    <div class="sequence-arrow" style="right: 0; top: -4px;"></div>
+                    <div class="sequence-label" style="left: 50%; transform: translateX(-50%);">经验反馈</div>
+                </div>
+                
+                <!-- 管理线 -->
+                <div class="sequence-line" style="left: 0; width: 100%; top: 90px; background: #34495e; opacity: 0.3;">
+                    <div class="sequence-label" style="left: 50%; transform: translateX(-50%);">管理贯穿全生命周期</div>
+                </div>
+            </div>
+        </div>
+        
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th class="stage-header">开发阶段与任务</th>
+                    <th class="role-header">研<br>(研究/研发)</th>
+                    <th class="role-spacer"></th>
+                    <th class="role-header">建<br>(建设/构建)</th>
+                    <th class="role-spacer"></th>
+                    <th class="role-header">用<br>(使用/应用)</th>
+                    <th class="role-spacer"></th>
+                    <th class="role-header">管<br>(管理)</th>
+                    <th class="role-spacer"></th>
+                    <th class="role-header">维<br>(维护)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 需求分析与规划阶段 -->
+                <tr>
+                    <td class="stage-header">需求分析与规划阶段</td>
+                    <td class="role-cell role-primary">
+                        <div class="role-symbol">★</div>
+                        <div class="role-text">主导角色</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-empty">
+                        <div class="role-symbol">-</div>
+                        <div class="role-text">-</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">市场调研与用户需求分析</td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">主导调研<br>需求分析</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">技术可行性<br>评估</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">用户视角<br>需求</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">需求管理<br>文档控制</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-empty">
+                        <div class="role-text">-</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">可行性研究与技术预研</td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">技术调研<br>方案设计</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">技术验证<br>原型开发</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">应用场景<br>分析</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">技术风险<br>评估</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-empty">
+                        <div class="role-text">-</div>
+                    </td>
+                </tr>
+
+                <!-- 系统设计与开发阶段 -->
+                <tr>
+                    <td class="stage-header">系统设计与开发阶段</td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-symbol">★</div>
+                        <div class="role-text">主导角色</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">系统架构设计</td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">架构指导<br>技术选型</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">架构设计<br>技术实现</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">用户需求<br>反馈</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">架构评审<br>标准制定</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">可维护性<br>考虑</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">编码实现与测试</td>
+                    <td class="role-cell role-empty">
+                        <div class="role-text">-</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">代码编写<br>测试执行</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">用户场景<br>测试</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">代码规范<br>质量管控</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">代码质量<br>评估</div>
+                    </td>
+                </tr>
+
+                <!-- 部署与应用阶段 -->
+                <tr>
+                    <td class="stage-header">部署与应用阶段</td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-symbol">★</div>
+                        <div class="role-text">主导角色</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">软件部署与发布</td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">发布策略<br>指导</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">部署支持<br>技术保障</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">部署执行<br>发布管理</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">发布计划<br>风险控制</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">监控准备<br>备份策略</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">用户培训与反馈收集</td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">培训内容<br>设计</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">技术培训<br>支持</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">用户培训<br>反馈收集</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">培训组织<br>效果评估</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">维护培训<br>文档</div>
+                    </td>
+                </tr>
+
+                <!-- 维护与优化阶段 -->
+                <tr>
+                    <td class="stage-header">维护与优化阶段</td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-symbol">○</div>
+                        <div class="role-text">参与</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-symbol">★</div>
+                        <div class="role-text">主导角色</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">Bug修复与性能优化</td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">问题分析<br>影响评估</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">代码修复<br>技术实现</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">问题报告<br>验证</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">问题管理<br>优先级</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">问题诊断<br>修复执行</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">功能增强与系统升级</td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">需求分析<br>功能设计</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">功能开发<br>实现</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-minimal">
+                        <div class="role-text">功能需求<br>反馈</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">需求管理<br>版本控制</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">功能集成<br>测试</div>
+                    </td>
+                </tr>
+
+                <!-- 持续改进与迭代 -->
+                <tr>
+                    <td class="stage-header">持续改进与迭代</td>
+                    <td class="role-cell role-primary">
+                        <div class="role-symbol">★</div>
+                        <div class="role-text">主导角色</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-symbol">★</div>
+                        <div class="role-text">主导角色</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-symbol">●</div>
+                        <div class="role-text">辅助</div>
+                    </td>
+                </tr>
+                <tr class="task-row">
+                    <td class="task-name">需求重新分析与功能扩展</td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">需求分析<br>功能规划</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-primary">
+                        <div class="role-text">功能设计<br>技术实现</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">需求反馈<br>验证</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">需求管理<br>项目管理</div>
+                    </td>
+                    <td class="role-spacer"></td>
+                    <td class="role-cell role-secondary">
+                        <div class="role-text">功能集成<br>测试</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="legend">
+            <h3>角色参与程度说明</h3>
+            <div class="legend-grid">
+                <div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #e8f5e8; border-color: #27ae60;"></div>
+                        <div class="legend-text"><strong>★ 主导角色</strong> - 该阶段的主要负责角色</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #fff3cd; border-color: #ffc107;"></div>
+                        <div class="legend-text"><strong>● 辅助角色</strong> - 重要支持角色</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #d1ecf1; border-color: #17a2b8;"></div>
+                        <div class="legend-text"><strong>○ 参与角色</strong> - 一般参与角色</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #f8f9fa; border-color: #6c757d;"></div>
+                        <div class="legend-text"><strong>○ 最小参与</strong> - 最小程度参与</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ffffff; border-color: #dee2e6;"></div>
+                        <div class="legend-text"><strong>- 不参与</strong> - 该阶段不参与</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

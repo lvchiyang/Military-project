@@ -1,0 +1,376 @@
+<!DOCTYPE html><html><head>
+      <title>研建用管维角色关系与效能指标体系分析</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\lvchi\.cursor\extensions\shd101wyy.markdown-preview-enhanced-0.8.19-universal\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\lvchi\.cursor\extensions\shd101wyy.markdown-preview-enhanced-0.8.19-universal\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="研建用管维角色关系与效能指标体系分析">研建用管维角色关系与效能指标体系分析 </h1>
+<h2 id="概述">概述 </h2>
+<p>本文档基于《研建用管维概念.md》和《阿里云效能指标.md》，深入分析软件生命周期中"研建用管维"五个核心角色的关系，并结合阿里云效能洞察平台的94个指标，构建了一个完整的效能度量体系。该体系适用于C4ISR（指挥、控制、通信、计算机、情报、监视和侦察）系统等复杂军用软件系统的开发与管理。</p>
+<h2 id="一-研建用管维五角色业务关系模型">一、研建用管维五角色业务关系模型 </h2>
+<div class="mermaid">%% 研建用管维五角色业务关系模型 - 斜向布局设计
+graph TB
+    %% 样式定义 - 使用浅色背景和深色文字
+    classDef research fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000,font-size:16px
+    classDef build fill:#f8f5ff,stroke:#7b1fa2,stroke-width:2px,color:#000,font-size:16px
+    classDef use fill:#e8f5e8,stroke:#388e3c,stroke-width:2px,color:#000,font-size:16px
+    classDef manage fill:#fff8e1,stroke:#f57c00,stroke-width:2px,color:#000,font-size:16px
+    classDef maintain fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:#000,font-size:16px
+    classDef activity fill:#ffffff,stroke:#666,stroke-width:1px,color:#000
+    classDef output fill:#f5f5f5,stroke:#333,stroke-width:1px,stroke-dasharray: 3 3,color:#000
+    classDef subgraphTitle font-size:22px,font-weight:bold,color:#000
+
+    %% 研角色 - 右上位置
+    subgraph R_Role["&lt;span style='font-size:28px;font-weight:bold;'&gt;"]
+        R_Core["🔬 研 Research&lt;/span&gt;&lt;br/&gt;决策规划，确保项目方向"]
+        R_Activities["关键活动&lt;br/&gt;• 市场调研&lt;br/&gt;• 用户需求分析&lt;br/&gt;• 可行性研究&lt;br/&gt;• 技术预研&lt;br/&gt;• 竞品分析&lt;br/&gt;• 概念验证PoC"]
+        R_Output["输出成果&lt;br/&gt;• 需求规格说明&lt;br/&gt;• 技术方案&lt;br/&gt;• 项目计划&lt;br/&gt;• 风险评估"]
+        R_C4ISR["C4ISR特色&lt;br/&gt;• 战略需求分析&lt;br/&gt;• 威胁评估&lt;br/&gt;• 技术可行性确认"]
+
+        R_Core --&gt; R_Activities --&gt; R_Output
+        R_Activities --&gt; R_C4ISR
+    end
+
+    %% 建角色 - 中间偏右
+    subgraph B_Role["&lt;span style='font-size:28px;font-weight:bold;'&gt;"]
+        B_Core["🏗️ 建 Build&lt;/span&gt;&lt;br/&gt;开发构建阶段，将设计转化为可运行产品"]
+        B_Activities["关键活动&lt;br/&gt;• 系统架构与UI/UX设计&lt;br/&gt;• 数据库设计&lt;br/&gt;• 编码实现&lt;br/&gt;• 单元/集成/系统测试"]
+        B_Output["输出成果&lt;br/&gt;• 可运行软件系统&lt;br/&gt;• 测试报告&lt;br/&gt;• 技术文档&lt;br/&gt;• 部署包"]
+        B_C4ISR["C4ISR特色&lt;br/&gt;• 模块化设计&lt;br/&gt;• 子系统集成&lt;br/&gt;• 通信协议实现"]
+
+        B_Core --&gt; B_Activities --&gt; B_Output
+        B_Activities --&gt; B_C4ISR
+    end
+
+    %% 用角色 - 中间偏左
+    subgraph U_Role["&lt;span style='font-size:28px;font-weight:bold;'&gt;"]
+        U_Core["🔧 用 Use&lt;/span&gt;&lt;br/&gt;应用部署阶段，软件价值体现"]
+        U_Activities["关键活动&lt;br/&gt;• 软件部署发布&lt;br/&gt;• 用户培训&lt;br/&gt;• 上线推广&lt;br/&gt;• 用户行为分析&lt;br/&gt;• 反馈收集"]
+        U_Output["输出成果&lt;br/&gt;• 运行中的系统&lt;br/&gt;• 用户反馈&lt;br/&gt;• 使用数据&lt;br/&gt;• 改进需求"]
+        U_C4ISR["C4ISR特色&lt;br/&gt;• 战场环境部署&lt;br/&gt;• 操控人员培训&lt;br/&gt;• 实时响应测试"]
+
+        U_Core --&gt; U_Activities --&gt; U_Output
+        U_Activities --&gt; U_C4ISR
+    end
+
+    %% 维角色 - 左下位置
+    subgraph V_Role["&lt;span style='font-size:28px;font-weight:bold;'&gt;"]
+        V_Core["🔧 维 Maintain&lt;/span&gt;&lt;br/&gt;维护优化阶段，保证持续稳定运行"]
+        V_Activities["关键活动&lt;br/&gt;• 纠正性维护&lt;br/&gt;(Bug修复)&lt;br/&gt;• 适应性维护&lt;br/&gt;(环境适配)&lt;br/&gt;• 完善性维护&lt;br/&gt;(功能增强)&lt;br/&gt;• 预防性维护&lt;br/&gt;(问题预防)"]
+        V_Output["输出成果&lt;br/&gt;• 维护报告&lt;br/&gt;• 升级版本&lt;br/&gt;• 性能优化方案&lt;br/&gt;• 改进建议"]
+        V_C4ISR["C4ISR特色&lt;br/&gt;• 持续性能监控&lt;br/&gt;• 战时条件验证&lt;br/&gt;• 敌情环境适应"]
+
+        V_Core --&gt; V_Activities --&gt; V_Output
+        V_Activities --&gt; V_C4ISR
+    end
+
+    %% 管角色 - 右侧管理职能
+    subgraph M_Role["&lt;span style='font-size:28px;font-weight:bold;'&gt;"]
+        M_Core["📊 管 Manage&lt;/span&gt;&lt;br/&gt;全程管理职能，确保项目协调有序"]
+        M_Activities["关键活动&lt;br/&gt;• 项目管理(进度/成本/资源)&lt;br/&gt;• 质量管理(规范/标准)&lt;br/&gt;• 配置管理(版本控制)&lt;br/&gt;• 风险管理&lt;br/&gt;• 安全管理&lt;br/&gt;• 运营管理"]
+        M_Output["输出成果&lt;br/&gt;• 项目报告&lt;br/&gt;• 质量报告&lt;br/&gt;• 风险评估报告&lt;br/&gt;• 管理制度"]
+        M_C4ISR["C4ISR特色&lt;br/&gt;• 可靠性管理&lt;br/&gt;• 安全性管控&lt;br/&gt;• 严格质量标准"]
+
+        M_Core --&gt; M_Activities --&gt; M_Output
+        M_Activities --&gt; M_C4ISR
+    end
+
+    %% 主流程关系 - 斜向连接线
+    R_Output -.-&gt; B_Core
+    B_Output -.-&gt; U_Core
+    U_Output -.-&gt; V_Core
+
+    %% 反馈循环 - 曲线连接
+    V_Output -.-&gt; R_Core
+    V_Output -.-&gt; B_Core
+    U_Output -.-&gt; R_Core
+
+    %% 管理贯穿关系 - 横向连接
+    M_Activities -.-&gt; R_Core
+    M_Activities -.-&gt; B_Core
+    M_Activities -.-&gt; U_Core
+    M_Activities -.-&gt; V_Core
+
+    %% 应用样式
+    class R_Core research
+    class B_Core build
+    class U_Core use
+    class V_Core maintain
+    class M_Core manage
+    class R_Activities,B_Activities,U_Activities,V_Activities,M_Activities activity
+    class R_Output,B_Output,U_Output,V_Output,M_Output output
+    class R_C4ISR,B_C4ISR,U_C4ISR,V_C4ISR,M_C4ISR activity
+    class R_Role,B_Role,U_Role,V_Role,M_Role subgraphTitle
+</div><h2 id="二-效能指标数据流与计算模型">二、效能指标数据流与计算模型 </h2>
+<div class="mermaid">graph TB
+    %% 样式定义 - 简洁清晰风格
+    classDef dataSource fill:#ffffff,stroke:#333333,stroke-width:1px,color:#000000,font-size:14px
+    classDef metricFormula fill:#f8f8f8,stroke:#666666,stroke-width:1px,color:#000000,font-size:14px
+    classDef insight fill:#ffffff,stroke:#333333,stroke-width:2px,color:#000000,font-size:14px
+
+    %% 研阶段数据流
+    subgraph R_Stage["研 Research - 需求与设计"]
+        R_Data["📊 数据源&lt;br/&gt;需求文档记录&lt;br/&gt;设计文档版本&lt;br/&gt;评审会议纪要&lt;br/&gt;变更请求记录&lt;br/&gt;原型验证结果"]
+        R_MetricFormula["📈 核心指标与计算公式&lt;br/&gt;RSI(需求稳定性指数)&lt;br/&gt;= 1 - 变更需求数/总需求数&lt;br/&gt;&lt;br/&gt;EAR(工时预估准确度)&lt;br/&gt;= max(0,1 - |实际工时-预估工时|/max(预估工时,1))&lt;br/&gt;&lt;br/&gt;RPE(需求处理效率)&lt;br/&gt;= Σ(已完成需求故事点)/(总需求故事点×经过天数)&lt;br/&gt;&lt;br/&gt;对应阿里云指标: ID:45,54,41"]
+        R_Insight["💡 效能洞察&lt;br/&gt;需求变更趋势&lt;br/&gt;设计质量水平&lt;br/&gt;评审有效性&lt;br/&gt;需求理解准确度"]
+
+        R_Data --&gt; R_MetricFormula --&gt; R_Insight
+    end
+
+    %% 建阶段数据流
+    subgraph B_Stage["建 Build - 开发与构建"]
+        B_Data["📊 数据源&lt;br/&gt;Git提交记录&lt;br/&gt;代码行数变更&lt;br/&gt;构建执行日志&lt;br/&gt;代码质量扫描&lt;br/&gt;PR/MR记录"]
+        B_MetricFormula["📈 核心指标与计算公式&lt;br/&gt;DEI(开发效率指数)&lt;br/&gt;= (有效提交次数×功能点数)/(开发人数×开发天数)&lt;br/&gt;&lt;br/&gt;CQI(代码质量指数)&lt;br/&gt;= max(0,1-缺陷密度/1000)×代码覆盖率×(1-重复率)&lt;br/&gt;&lt;br/&gt;BSI(构建稳定性指数)&lt;br/&gt;= 成功构建次数/总构建次数&lt;br/&gt;&lt;br/&gt;CRD(代码评审深度)&lt;br/&gt;= 评论总数/(代码行数/1000)&lt;br/&gt;&lt;br/&gt;对应阿里云指标: ID:20,1,26,14"]
+        B_Insight["💡 效能洞察&lt;br/&gt;开发节奏稳定性&lt;br/&gt;代码质量趋势&lt;br/&gt;集成效率水平&lt;br/&gt;团队协作质量"]
+
+        B_Data --&gt; B_MetricFormula --&gt; B_Insight
+    end
+
+    %% 用阶段数据流
+    subgraph U_Stage["用 Use - 部署与应用"]
+        U_Data["📊 数据源&lt;br/&gt;部署执行记录&lt;br/&gt;系统运行日志&lt;br/&gt;用户反馈数据&lt;br/&gt;性能监控数据&lt;br/&gt;故障恢复记录"]
+        U_MetricFormula["📈 核心指标与计算公式&lt;br/&gt;DSR(部署成功率)&lt;br/&gt;= 成功部署/总部署×100%&lt;br/&gt;&lt;br/&gt;Availability(系统可用性)&lt;br/&gt;= (总时间-故障时间)/总时间&lt;br/&gt;&lt;br/&gt;Lead Time(交付周期)&lt;br/&gt;= 完成时间-创建时间&lt;br/&gt;&lt;br/&gt;MTTR(平均故障恢复时间)&lt;br/&gt;= 总恢复时间/故障次数&lt;br/&gt;&lt;br/&gt;对应阿里云指标: ID:30,39,51,37"]
+        U_Insight["💡 效能洞察&lt;br/&gt;发布稳定性&lt;br/&gt;系统可靠性&lt;br/&gt;交付能力&lt;br/&gt;故障响应能力"]
+
+        U_Data --&gt; U_MetricFormula --&gt; U_Insight
+    end
+
+    %% 管阶段数据流
+    subgraph M_Stage["管 Manage - 项目管理"]
+        M_Data["📊 数据源&lt;br/&gt;工作项状态记录&lt;br/&gt;团队成员工时&lt;br/&gt;项目里程碑&lt;br/&gt;资源分配记录&lt;br/&gt;风险事件日志"]
+        M_MetricFormula["📈 核心指标与计算公式&lt;br/&gt;PHI(项目健康度指数)&lt;br/&gt;= (进度+质量+成本)/3&lt;br/&gt;&lt;br/&gt;TEI(团队效能指数)&lt;br/&gt;= 完成工作项/(人数×天数)&lt;br/&gt;&lt;br/&gt;RUR(资源利用率)&lt;br/&gt;= 实际工时/计划工时×100%&lt;br/&gt;&lt;br/&gt;CPI(成本绩效指数)&lt;br/&gt;= 完成预算/实际成本&lt;br/&gt;&lt;br/&gt;对应阿里云指标: ID:3,68,7,42"]
+        M_Insight["💡 效能洞察&lt;br/&gt;项目健康度&lt;br/&gt;资源配置效率&lt;br/&gt;团队协作水平&lt;br/&gt;成本控制能力"]
+
+        M_Data --&gt; M_MetricFormula --&gt; M_Insight
+    end
+
+    %% 维阶段数据流
+    subgraph V_Stage["维 Maintain - 维护与优化"]
+        V_Data["📊 数据源&lt;br/&gt;缺陷报告记录&lt;br/&gt;修复时间日志&lt;br/&gt;系统性能数据&lt;br/&gt;用户满意度&lt;br/&gt;技术债务评估"]
+        V_MetricFormula["📈 核心指标与计算公式&lt;br/&gt;DFE(缺陷修复效率)&lt;br/&gt;= 已修复/总缺陷×100%&lt;br/&gt;&lt;br/&gt;MTBF(平均故障间隔时间)&lt;br/&gt;= 总运行时间/故障次数&lt;br/&gt;&lt;br/&gt;TDR(技术债务比率)&lt;br/&gt;= 技术债务工时/总工时×100%&lt;br/&gt;&lt;br/&gt;缺陷密度&lt;br/&gt;= 缺陷数/千行代码&lt;br/&gt;&lt;br/&gt;对应阿里云指标: ID:44,61,78,91"]
+        V_Insight["💡 效能洞察&lt;br/&gt;系统质量水平&lt;br/&gt;维护响应能力&lt;br/&gt;技术债务状况&lt;br/&gt;持续改进效果"]
+
+        V_Data --&gt; V_MetricFormula --&gt; V_Insight
+    end
+
+    %% 跨阶段数据流关系
+    R_Insight -.-&gt; B_Data
+    B_Insight -.-&gt; U_Data
+    U_Insight -.-&gt; V_Data
+    V_Insight -.-&gt; R_Data
+
+    %% 管理数据流贯穿
+    M_Data -.-&gt; R_Data
+    M_Data -.-&gt; B_Data
+    M_Data -.-&gt; U_Data
+    M_Data -.-&gt; V_Data
+
+    %% 应用样式
+    class R_Data,B_Data,U_Data,M_Data,V_Data dataSource
+    class R_MetricFormula,B_MetricFormula,U_MetricFormula,M_MetricFormula,V_MetricFormula metricFormula
+    class R_Insight,B_Insight,U_Insight,M_Insight,V_Insight insight
+</div><h2 id="三-核心指标数学公式设计">三、核心指标数学公式设计 </h2>
+<h3 id="31-研阶段数学模型">3.1 研阶段数学模型 </h3>
+<p><strong>需求稳定性指数 (RSI)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>RSI = 1 - (变更需求数 / 总需求数)
+</code></pre><ul>
+<li>数据源：JIRA需求变更记录</li>
+<li>计算频率：每日更新</li>
+<li>阈值设计：RSI ≥ 0.8 优秀，0.6-0.8 良好，0.4-0.6 警告，&lt; 0.4 危险</li>
+</ul>
+<p><strong>工时预估准确度 (EAR)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>EAR = max(0, 1 - |实际工时 - 预估工时| / max(预估工时, 1))
+</code></pre><ul>
+<li>数据源：工时记录系统</li>
+<li>计算频率：任务完成时计算</li>
+<li>阈值设计：EAR ≥ 0.8 优秀，0.6-0.8 良好，0.4-0.6 警告，&lt; 0.4 危险</li>
+</ul>
+<p><strong>需求处理效率 (RPE)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>RPE = Σ(已完成需求故事点) / (总需求故事点 × 经过天数)
+</code></pre><ul>
+<li>数据源：需求管理系统状态变更和故事点记录</li>
+<li>计算频率：每日计算</li>
+<li>阈值设计：RPE ≥ 0.6 优秀，0.4-0.6 良好，0.2-0.4 警告，&lt; 0.2 危险</li>
+</ul>
+<h3 id="32-建阶段数学模型">3.2 建阶段数学模型 </h3>
+<p><strong>代码质量综合指数 (CQI)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>CQI = max(0, 1 - 缺陷密度/1000) × 代码覆盖率 × (1 - 重复率)
+</code></pre><ul>
+<li>数据源：SonarQube代码质量扫描</li>
+<li>计算频率：每次代码提交触发</li>
+<li>阈值设计：CQI ≥ 0.75 优秀，0.6-0.75 良好，0.4-0.6 警告，&lt; 0.4 危险</li>
+</ul>
+<p><strong>开发效率指数 (DEI)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>DEI = (有效提交次数 × 功能点数) / (开发人数 × 开发天数)
+</code></pre><ul>
+<li>数据源：Git提交记录和功能点评估</li>
+<li>计算频率：每日计算</li>
+<li>阈值设计：DEI ≥ 80 优秀，60-80 良好，40-60 警告，&lt; 40 危险</li>
+</ul>
+<p><strong>构建稳定性指数 (BSI)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>BSI = 成功构建次数 / 总构建次数
+</code></pre><ul>
+<li>数据源：CI/CD构建日志</li>
+<li>计算频率：实时计算</li>
+<li>阈值设计：BSI ≥ 0.95 优秀，0.9-0.95 良好，0.8-0.9 警告，&lt; 0.8 危险</li>
+</ul>
+<p><strong>代码评审深度 (CRD)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>CRD = 评论总数 / (代码行数 / 1000)
+</code></pre><ul>
+<li>数据源：Git PR/MR评论记录</li>
+<li>计算频率：PR合并时计算</li>
+<li>阈值设计：CRD ≥ 10 优秀，7-10 良好，5-7 警告，&lt; 5 危险</li>
+</ul>
+<h3 id="33-用阶段数学模型">3.3 用阶段数学模型 </h3>
+<p><strong>系统可用性 (Availability)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Availability = (总时间 - 故障时间) / 总时间 × 100%
+</code></pre><ul>
+<li>数据源：系统监控日志</li>
+<li>计算频率：实时计算</li>
+<li>阈值设计：≥ 99.5% 优秀，99%-99.5% 良好，95%-99% 警告，&lt; 95% 危险</li>
+</ul>
+<p><strong>部署成功率 (DSR)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>DSR = 成功部署次数 / 总部署次数 × 100%
+</code></pre><ul>
+<li>数据源：CI/CD部署日志</li>
+<li>计算频率：每次部署后更新</li>
+<li>阈值设计：DSR ≥ 95% 优秀，90%-95% 良好，85%-90% 警告，&lt; 85% 危险</li>
+</ul>
+<p><strong>平均故障恢复时间 (MTTR)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>MTTR = Σ故障恢复时间 / 故障次数
+</code></pre><ul>
+<li>数据源：故障处理记录</li>
+<li>计算频率：故障解决后更新</li>
+<li>阈值设计：≤ 1小时 优秀，1-4小时 良好，4-8小时 警告，&gt; 8小时 危险</li>
+</ul>
+<h3 id="34-管阶段数学模型">3.4 管阶段数学模型 </h3>
+<p><strong>项目健康度指数 (PHI)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>PHI = (进度达成率 + 质量达成率 + 成本控制率) / 3
+</code></pre><ul>
+<li>数据源：项目管理系统综合数据</li>
+<li>计算频率：每周计算</li>
+<li>阈值设计：PHI ≥ 0.9 优秀，0.8-0.9 良好，0.7-0.8 警告，&lt; 0.7 危险</li>
+</ul>
+<p><strong>团队效能指数 (TEI)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>TEI = 完成工作项数 / (团队人数 × 工作天数)
+</code></pre><ul>
+<li>数据源：工作项完成记录和团队配置</li>
+<li>计算频率：每日计算</li>
+<li>阈值设计：TEI ≥ 0.8 优秀，0.6-0.8 良好，0.4-0.6 警告，&lt; 0.4 危险</li>
+</ul>
+<p><strong>资源利用率 (RUR)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>RUR = 实际工时 / 计划工时 × 100%
+</code></pre><ul>
+<li>数据源：工时记录系统</li>
+<li>计算频率：每周计算</li>
+<li>阈值设计：85%-100% 优秀，70%-85% 良好，50%-70% 警告，&lt; 50% 危险</li>
+</ul>
+<h3 id="35-维阶段数学模型">3.5 维阶段数学模型 </h3>
+<p><strong>缺陷修复效率 (DFE)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>DFE = 已修复缺陷数 / 总缺陷数 × 100%
+</code></pre><ul>
+<li>数据源：缺陷管理系统</li>
+<li>计算频率：每日更新</li>
+<li>阈值设计：DFE ≥ 90% 优秀，80%-90% 良好，70%-80% 警告，&lt; 70% 危险</li>
+</ul>
+<p><strong>平均故障间隔时间 (MTBF)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>MTBF = 总运行时间 / 故障次数
+</code></pre><ul>
+<li>数据源：系统运行监控</li>
+<li>计算频率：每小时更新</li>
+<li>阈值设计：≥ 720小时 优秀，360-720小时 良好，168-360小时 警告，&lt; 168小时 危险</li>
+</ul>
+<p><strong>技术债务比率 (TDR)</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>TDR = 技术债务工时 / 总开发工时 × 100%
+</code></pre><ul>
+<li>数据源：代码质量分析和工时记录</li>
+<li>计算频率：每周计算</li>
+<li>阈值设计：≤ 10% 优秀，10%-20% 良好，20%-30% 警告，&gt; 30% 危险</li>
+</ul>
+<h3 id="36-综合效能指数-oei">3.6 综合效能指数 (OEI) </h3>
+<p><strong>综合效能指数计算公式</strong></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>OEI = RSI×0.1 + CQI×0.2 + Availability×0.25 + PHI×0.2 + DFE×0.15 + 其他指标×0.1
+</code></pre><p><strong>权重分配说明</strong>：</p>
+<ul>
+<li>系统可用性 (Availability)：25% - 最高权重，对C4ISR系统至关重要</li>
+<li>代码质量指数 (CQI)：20% - 代码质量是软件质量的基础</li>
+<li>项目健康度 (PHI)：20% - 项目管理效果的综合体现</li>
+<li>缺陷修复效率 (DFE)：15% - 维护能力的重要指标</li>
+<li>需求稳定性 (RSI)：10% - 需求管理的基础指标</li>
+<li>其他指标：10% - 灵活调整空间</li>
+</ul>
+<p><strong>综合评级标准</strong>：</p>
+<ul>
+<li>OEI ≥ 0.8：卓越 🟢</li>
+<li>0.65 ≤ OEI &lt; 0.8：良好 🟡</li>
+<li>0.5 ≤ OEI &lt; 0.65：需改进 🟠</li>
+<li>OEI &lt; 0.5：急需改进 🔴</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>
