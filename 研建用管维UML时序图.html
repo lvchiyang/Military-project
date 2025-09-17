@@ -1,0 +1,565 @@
+<!DOCTYPE html><html><head>
+      <title>研建用管维UML时序图</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\lvchi\.cursor\extensions\shd101wyy.markdown-preview-enhanced-0.8.19-universal\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\lvchi\.cursor\extensions\shd101wyy.markdown-preview-enhanced-0.8.19-universal\crossnote\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="研建用管维uml时序图">研建用管维UML时序图 </h1>
+<h2 id="软件开发生命周期中角色交互时序图">软件开发生命周期中角色交互时序图 </h2>
+<div class="mermaid">sequenceDiagram
+    participant 研 as 研(研究/研发)
+    participant 建 as 建(建设/构建)
+    participant 用 as 用(使用/应用)
+    participant 管 as 管(管理)
+    participant 维 as 维(维护)
+
+    %% 需求分析与规划阶段
+    Note over 研,维: ========== 需求分析与规划阶段 ==========
+    
+    %% 任务1：项目启动与规划
+    Note over 研,维: 任务1：项目启动与规划
+    管-&gt;&gt;管: 项目启动
+    管-&gt;&gt;研: 项目规划指导
+    管-&gt;&gt;建: 技术团队组建
+    管-&gt;&gt;用: 用户代表确定
+    管-&gt;&gt;维: 维护团队准备
+    
+    %% 任务2：市场调研与需求收集
+    Note over 研,维: 任务2：市场调研与需求收集
+    研-&gt;&gt;研: 市场调研
+    用-&gt;&gt;研: 用户需求提供
+    研-&gt;&gt;用: 需求确认
+    研-&gt;&gt;管: 需求文档提交
+    activate 研
+    Note over 研: 📊 新增需求概览(54)&lt;br/&gt;RSI=1-(变更需求数/总需求数)
+    deactivate 研
+    管-&gt;&gt;管: 需求管理
+    
+    %% 任务3：技术可行性研究
+    Note over 研,维: 任务3：技术可行性研究
+    研-&gt;&gt;研: 技术预研
+    研-&gt;&gt;建: 技术方案传递
+    建-&gt;&gt;建: 技术可行性评估
+    建-&gt;&gt;研: 技术方案反馈
+    研-&gt;&gt;管: 技术风险评估
+    activate 管
+    Note over 管: 📊 预估工时按成员排名(69)&lt;br/&gt;EAR=max(0,1-|实际工时-预估工时|/max(预估工时,1))
+    deactivate 管
+    维-&gt;&gt;研: 可维护性建议
+    
+    %% 任务4：竞品分析与概念验证
+    Note over 研,维: 任务4：竞品分析与概念验证
+    研-&gt;&gt;研: 竞品分析
+    研-&gt;&gt;建: PoC需求
+    建-&gt;&gt;建: 原型开发
+    建-&gt;&gt;研: PoC结果
+    研-&gt;&gt;用: 概念验证
+    用-&gt;&gt;研: 用户体验反馈
+    activate 用
+    Note over 用: 📊 需求现状概览(94)&lt;br/&gt;RPE=Σ(已完成需求故事点)/(总需求故事点×经过天数)
+    deactivate 用
+    研-&gt;&gt;管: 项目可行性报告
+
+    %% 系统设计与开发阶段
+    Note over 研,维: ========== 系统设计与开发阶段 ==========
+    
+    %% 任务5：系统架构设计
+    Note over 研,维: 任务5：系统架构设计
+    研-&gt;&gt;建: 架构指导
+    建-&gt;&gt;建: 系统架构设计
+    建-&gt;&gt;研: 架构方案确认
+    建-&gt;&gt;管: 架构评审申请
+    管-&gt;&gt;建: 架构评审
+    维-&gt;&gt;建: 可维护性要求
+    建-&gt;&gt;维: 架构可维护性设计
+    
+    %% 任务6：详细设计与UI/UX设计
+    Note over 研,维: 任务6：详细设计与UI/UX设计
+    建-&gt;&gt;建: 数据库设计
+    建-&gt;&gt;建: UI/UX设计
+    建-&gt;&gt;用: 用户体验确认
+    用-&gt;&gt;建: 用户界面反馈
+    建-&gt;&gt;管: 设计文档提交
+    管-&gt;&gt;建: 设计标准要求
+    
+    %% 任务7：编码实现
+    Note over 研,维: 任务7：编码实现
+    建-&gt;&gt;建: 编码实现
+    activate 建
+    Note over 建: 📊 代码提交趋势(20)&lt;br/&gt;DEI=(有效提交次数×功能点数)/(开发人数×开发天数)
+    deactivate 建
+    管-&gt;&gt;建: 代码规范要求
+    建-&gt;&gt;管: 代码质量报告
+    维-&gt;&gt;建: 代码质量评估
+    建-&gt;&gt;维: 代码质量改进
+    
+    %% 任务8：测试与质量保证
+    Note over 研,维: 任务8：测试与质量保证
+    建-&gt;&gt;建: 单元测试
+    建-&gt;&gt;建: 集成测试
+    建-&gt;&gt;用: 用户场景测试
+    用-&gt;&gt;建: 测试反馈
+    建-&gt;&gt;管: 测试报告
+    activate 建
+    Note over 建: 📊 代码问题趋势(1)&lt;br/&gt;CQI=max(0,1-缺陷密度/1000)×代码覆盖率×(1-重复率)
+    deactivate 建
+    管-&gt;&gt;建: 质量要求
+    维-&gt;&gt;建: 可维护性测试
+
+    %% 部署与应用阶段
+    Note over 研,维: ========== 部署与应用阶段 ==========
+    
+    %% 任务9：部署准备
+    Note over 研,维: 任务9：部署准备
+    研-&gt;&gt;用: 发布策略指导
+    建-&gt;&gt;建: 部署环境准备
+    建-&gt;&gt;用: 部署支持
+    管-&gt;&gt;管: 发布计划制定
+    维-&gt;&gt;维: 监控准备
+    
+    %% 任务10：软件部署与发布
+    Note over 研,维: 任务10：软件部署与发布
+    用-&gt;&gt;用: 软件部署
+    activate 用
+    Note over 用: 📊 运行按流水线排名(30)&lt;br/&gt;DSR=成功部署次数/总部署次数×100%
+    deactivate 用
+    用-&gt;&gt;建: 技术问题反馈
+    建-&gt;&gt;用: 技术问题解决
+    用-&gt;&gt;管: 部署状态报告
+    管-&gt;&gt;用: 发布计划执行
+    维-&gt;&gt;用: 监控数据提供
+    
+    %% 任务11：用户培训与推广
+    Note over 研,维: 任务11：用户培训与推广
+    研-&gt;&gt;用: 培训内容设计
+    用-&gt;&gt;用: 用户培训
+    用-&gt;&gt;用: 上线推广
+    用-&gt;&gt;管: 培训效果报告
+    管-&gt;&gt;用: 推广策略指导
+    维-&gt;&gt;用: 维护培训
+    
+    %% 任务12：用户反馈收集
+    Note over 研,维: 任务12：用户反馈收集
+    用-&gt;&gt;用: 用户行为数据分析
+    用-&gt;&gt;用: 用户反馈收集
+    activate 用
+    Note over 用: 📊 需求交付速率(88)&lt;br/&gt;Lead Time=完成时间-创建时间
+    deactivate 用
+    用-&gt;&gt;维: 问题反馈
+    用-&gt;&gt;管: 运营数据报告
+    用-&gt;&gt;研: 用户需求反馈
+
+    %% 维护与优化阶段
+    Note over 研,维: ========== 维护与优化阶段 ==========
+    
+    %% 任务13：问题诊断与修复
+    Note over 研,维: 任务13：问题诊断与修复
+    维-&gt;&gt;维: 问题诊断
+    维-&gt;&gt;研: 问题分析请求
+    研-&gt;&gt;维: 问题影响评估
+    维-&gt;&gt;建: 修复需求
+    建-&gt;&gt;建: 代码修复
+    建-&gt;&gt;维: 修复结果
+    维-&gt;&gt;用: 问题验证
+    用-&gt;&gt;维: 修复确认
+    维-&gt;&gt;管: 维护报告
+    activate 维
+    Note over 维: 📊 新增缺陷趋势(44)&lt;br/&gt;DFE=已修复缺陷数/总缺陷数×100%
+    deactivate 维
+    
+    %% 任务14：性能优化与功能增强
+    Note over 研,维: 任务14：性能优化与功能增强
+    维-&gt;&gt;维: 性能监控
+    维-&gt;&gt;研: 优化需求分析
+    研-&gt;&gt;维: 优化方案
+    维-&gt;&gt;建: 功能开发需求
+    建-&gt;&gt;建: 功能开发
+    建-&gt;&gt;维: 功能交付
+    维-&gt;&gt;用: 功能测试
+    用-&gt;&gt;维: 功能验证
+    维-&gt;&gt;管: 版本管理
+    activate 维
+    Note over 维: 📊 缺陷修复速率(87)&lt;br/&gt;MTTR=Σ故障恢复时间/故障次数
+    deactivate 维
+
+    %% 持续改进与迭代阶段
+    Note over 研,维: ========== 持续改进与迭代阶段 ==========
+    
+    %% 任务15：需求重新分析
+    Note over 研,维: 任务15：需求重新分析
+    维-&gt;&gt;研: 维护经验反馈
+    用-&gt;&gt;研: 新需求反馈
+    研-&gt;&gt;研: 需求重新分析
+    activate 研
+    Note over 研: 📊 新增需求趋势(45)&lt;br/&gt;RSI=1-(变更需求数/总需求数)
+    deactivate 研
+    研-&gt;&gt;管: 需求管理
+    管-&gt;&gt;研: 需求优先级
+    研-&gt;&gt;建: 新需求传递
+    
+    %% 任务16：功能扩展与版本开发
+    Note over 研,维: 任务16：功能扩展与版本开发
+    研-&gt;&gt;建: 功能规划
+    建-&gt;&gt;建: 功能开发
+    建-&gt;&gt;用: 功能测试
+    用-&gt;&gt;建: 功能反馈
+    建-&gt;&gt;维: 功能集成
+    维-&gt;&gt;维: 功能集成测试
+    维-&gt;&gt;管: 版本发布准备
+    
+    %% 任务17：版本发布与迭代管理
+    Note over 研,维: 任务17：版本发布与迭代管理
+    管-&gt;&gt;管: 版本管理
+    管-&gt;&gt;用: 版本发布
+    用-&gt;&gt;用: 新版本培训
+    用-&gt;&gt;研: 版本反馈
+    管-&gt;&gt;研: 迭代管理
+    管-&gt;&gt;建: 项目管理
+    维-&gt;&gt;维: 版本维护支持
+    管-&gt;&gt;管: 版本管理
+    activate 管
+    Note over 管: 📊 迭代燃尽图(4)&lt;br/&gt;PHI=(进度达成率+质量达成率+成本控制率)/3
+    deactivate 管
+
+    %% 管理贯穿全生命周期
+    Note over 管: 管理贯穿全生命周期&lt;br/&gt;项目管理(进度、成本、资源)&lt;br/&gt;质量管理(代码规范、测试标准)&lt;br/&gt;配置管理(版本控制)&lt;br/&gt;风险管理、安全管理&lt;br/&gt;运营管理(性能监控、日志分析、用户管理)
+</div><h2 id="角色参与程度说明">角色参与程度说明 </h2>
+<table>
+<thead>
+<tr>
+<th>开发阶段</th>
+<th>研</th>
+<th>建</th>
+<th>用</th>
+<th>管</th>
+<th>维</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>需求分析与规划</strong></td>
+<td>★主导</td>
+<td>●辅助</td>
+<td>●辅助</td>
+<td>★主导</td>
+<td>○参与</td>
+</tr>
+<tr>
+<td><strong>系统设计与开发</strong></td>
+<td>●辅助</td>
+<td>★主导</td>
+<td>●辅助</td>
+<td>★主导</td>
+<td>●辅助</td>
+</tr>
+<tr>
+<td><strong>部署与应用</strong></td>
+<td>●辅助</td>
+<td>●辅助</td>
+<td>★主导</td>
+<td>★主导</td>
+<td>●辅助</td>
+</tr>
+<tr>
+<td><strong>维护与优化</strong></td>
+<td>●辅助</td>
+<td>●辅助</td>
+<td>●辅助</td>
+<td>★主导</td>
+<td>★主导</td>
+</tr>
+<tr>
+<td><strong>持续改进</strong></td>
+<td>★主导</td>
+<td>★主导</td>
+<td>●辅助</td>
+<td>★主导</td>
+<td>●辅助</td>
+</tr>
+</tbody>
+</table>
+<p><strong>图例说明：</strong></p>
+<ul>
+<li>★主导：该阶段的主要负责角色</li>
+<li>●辅助：重要支持角色</li>
+<li>○参与：一般参与角色</li>
+</ul>
+<h2 id="关键观察">关键观察 </h2>
+<h3 id="1-任务执行顺序特征">1. 任务执行顺序特征 </h3>
+<ul>
+<li><strong>管</strong>：通常作为任务启动者，负责项目管理和协调</li>
+<li><strong>研</strong>：在需求分析和技术研究任务中起主导作用</li>
+<li><strong>建</strong>：在技术实现和开发任务中起主导作用</li>
+<li><strong>用</strong>：在用户相关任务中起关键作用</li>
+<li><strong>维</strong>：在维护和优化任务中起主导作用</li>
+</ul>
+<h3 id="2-角色间的交互流程">2. 角色间的交互流程 </h3>
+<ul>
+<li><strong>管→所有</strong>：项目管理贯穿全生命周期，负责启动和协调</li>
+<li><strong>研↔建</strong>：需求传递与技术实现的协作关系</li>
+<li><strong>建↔用</strong>：产品交付与价值验证的协作关系</li>
+<li><strong>用↔维</strong>：问题反馈与维护响应的协作关系</li>
+<li><strong>维↔研</strong>：维护经验与需求改进的协作关系</li>
+</ul>
+<h3 id="3-任务依赖关系">3. 任务依赖关系 </h3>
+<ul>
+<li><strong>顺序依赖</strong>：大部分任务按时间顺序执行</li>
+<li><strong>并行协作</strong>：同一任务内多个角色可以并行工作</li>
+<li><strong>反馈循环</strong>：任务间存在反馈机制，形成持续改进</li>
+<li><strong>管理协调</strong>：管角色负责协调各角色间的任务执行</li>
+</ul>
+<h3 id="4-多角色协作模式">4. 多角色协作模式 </h3>
+<ul>
+<li><strong>需求阶段</strong>：研+管为主，建+用+维参与</li>
+<li><strong>开发阶段</strong>：建+管为主，研+用+维参与</li>
+<li><strong>应用阶段</strong>：用+管为主，研+建+维参与</li>
+<li><strong>维护阶段</strong>：维+管为主，研+建+用参与</li>
+<li><strong>迭代阶段</strong>：研+建+管为主，用+维参与</li>
+</ul>
+<h3 id="5-业务逻辑关系">5. 业务逻辑关系 </h3>
+<ul>
+<li><strong>需求驱动</strong>：用户需求驱动整个开发流程</li>
+<li><strong>技术支撑</strong>：技术可行性支撑需求实现</li>
+<li><strong>质量保证</strong>：质量管控贯穿开发全过程</li>
+<li><strong>反馈优化</strong>：用户反馈驱动持续改进</li>
+<li><strong>经验积累</strong>：维护经验反馈到需求分析</li>
+</ul>
+<h3 id="6-时序图优势">6. 时序图优势 </h3>
+<ul>
+<li><strong>任务细化</strong>：将每个阶段细分为具体任务</li>
+<li><strong>执行顺序</strong>：清晰显示任务间的执行顺序和依赖关系</li>
+<li><strong>角色协作</strong>：详细展示角色间的协作流程</li>
+<li><strong>业务逻辑</strong>：通过箭头展示业务逻辑关系</li>
+<li><strong>生命周期</strong>：完整展示软件从需求到维护的全过程</li>
+<li><strong>可操作性</strong>：提供具体的任务执行指导</li>
+</ul>
+<h2 id="在c4isr系统中的特殊考虑">在C4ISR系统中的特殊考虑 </h2>
+<h3 id="任务1-4需求分析与规划阶段">任务1-4：需求分析与规划阶段 </h3>
+<ul>
+<li><strong>研</strong>：战略需求分析、威胁评估、技术预研</li>
+<li><strong>管</strong>：军方项目管理、安全等级规划</li>
+<li><strong>建</strong>：军用技术可行性评估、原型验证</li>
+<li><strong>用</strong>：作战需求提供、战场环境分析</li>
+<li><strong>维</strong>：军用系统可维护性设计</li>
+</ul>
+<h3 id="任务5-8系统设计与开发阶段">任务5-8：系统设计与开发阶段 </h3>
+<ul>
+<li><strong>建</strong>：军用系统架构设计、模块化集成</li>
+<li><strong>管</strong>：军用标准质量管控、安全认证</li>
+<li><strong>研</strong>：军用技术指导、标准制定</li>
+<li><strong>用</strong>：作战场景测试、用户体验验证</li>
+<li><strong>维</strong>：军用代码质量评估、安全测试</li>
+</ul>
+<h3 id="任务9-12部署与应用阶段">任务9-12：部署与应用阶段 </h3>
+<ul>
+<li><strong>用</strong>：战场部署、作战人员培训</li>
+<li><strong>管</strong>：军用发布管理、安全运营</li>
+<li><strong>建</strong>：军用技术保障、系统集成</li>
+<li><strong>研</strong>：作战策略指导、战术分析</li>
+<li><strong>维</strong>：军用监控准备、安全备份</li>
+</ul>
+<h3 id="任务13-14维护与优化阶段">任务13-14：维护与优化阶段 </h3>
+<ul>
+<li><strong>维</strong>：军用系统维护、安全更新</li>
+<li><strong>管</strong>：军用维护管理、安全版本控制</li>
+<li><strong>建</strong>：军用代码修复、安全补丁</li>
+<li><strong>研</strong>：军用问题分析、安全评估</li>
+<li><strong>用</strong>：作战问题反馈、系统验证</li>
+</ul>
+<h3 id="任务15-17持续改进阶段">任务15-17：持续改进阶段 </h3>
+<ul>
+<li><strong>研</strong>：军用需求重分析、威胁评估更新</li>
+<li><strong>建</strong>：军用功能开发、安全增强</li>
+<li><strong>管</strong>：军用迭代管理、安全项目管理</li>
+<li><strong>用</strong>：作战需求验证、新功能测试</li>
+<li><strong>维</strong>：军用功能集成、安全测试</li>
+</ul>
+<h2 id="迭代循环特征">迭代循环特征 </h2>
+<h3 id="持续改进机制">持续改进机制 </h3>
+<ul>
+<li>从任务17（版本发布与迭代管理）可以回到任务1（项目启动与规划）</li>
+<li>每个任务循环都会基于前期经验优化后续流程</li>
+<li>管理职能确保迭代过程的规范性和效率</li>
+</ul>
+<h3 id="任务间反馈循环">任务间反馈循环 </h3>
+<ul>
+<li><strong>任务12→任务15</strong>：用户反馈驱动需求重新分析</li>
+<li><strong>任务14→任务15</strong>：维护经验驱动需求改进</li>
+<li><strong>任务17→任务1</strong>：版本反馈驱动新一轮项目规划</li>
+<li><strong>任务13→任务5</strong>：问题经验驱动架构优化</li>
+</ul>
+<h3 id="反馈驱动优化">反馈驱动优化 </h3>
+<ul>
+<li>用户反馈驱动功能改进（任务12→任务16）</li>
+<li>维护经验驱动架构优化（任务14→任务5）</li>
+<li>技术发展驱动系统升级（任务15→任务16）</li>
+<li>业务需求驱动流程改进（任务17→任务1）</li>
+</ul>
+<h2 id="总结">总结 </h2>
+<p>"研建用管维"五个角色在瀑布模型中形成有机的协作关系，通过任务细化的UML时序图可以清晰看出：</p>
+<h3 id="核心特点">核心特点 </h3>
+<ol>
+<li><strong>任务细化</strong>：将每个开发阶段细分为具体任务，每个任务都有明确的执行顺序</li>
+<li><strong>角色协作</strong>：详细展示角色间的协作流程和业务逻辑关系</li>
+<li><strong>执行顺序</strong>：通过箭头清晰显示任务间的执行顺序和依赖关系</li>
+<li><strong>业务逻辑</strong>：综合考虑不同角色之间的任务顺序，添加横向箭头说明业务逻辑</li>
+<li><strong>生命周期</strong>：完整展示软件从需求到维护的全过程</li>
+</ol>
+<h3 id="关键优势">关键优势 </h3>
+<ol>
+<li><strong>可操作性</strong>：提供具体的任务执行指导，便于团队实际操作</li>
+<li><strong>协作清晰</strong>：明确展示角色间的协作关系和责任分工</li>
+<li><strong>流程规范</strong>：标准化的任务执行流程，提高开发效率</li>
+<li><strong>质量保证</strong>：通过任务细化确保每个环节的质量控制</li>
+<li><strong>持续改进</strong>：反馈机制确保系统的持续优化和迭代</li>
+</ol>
+<h3 id="适用场景">适用场景 </h3>
+<p>这种任务细化的模式特别适用于C4ISR等复杂系统，能够确保：</p>
+<ul>
+<li>系统开发的规范性和可控性</li>
+<li>角色间的有效协作和沟通</li>
+<li>开发过程的透明度和可追溯性</li>
+<li>系统具有强大的作战效能和长期的战略价值</li>
+</ul>
+<p>通过标准化的UML时序图表示，便于团队理解、沟通和协作，提高软件开发过程的效率和质量。</p>
+<h2 id="效能指标监控说明">效能指标监控说明 </h2>
+<p>在UML时序图中，我们选择了以下关键效能指标作为过程监控的示例：</p>
+<h3 id="需求分析与规划阶段">需求分析与规划阶段 </h3>
+<ul>
+<li><strong>新增需求概览(54)</strong>：监控需求文档提交过程，衡量需求数量和质量
+<ul>
+<li>数学公式：RSI = 1 - (变更需求数 / 总需求数)</li>
+</ul>
+</li>
+<li><strong>预估工时按成员排名(69)</strong>：监控技术可行性研究过程，评估工作量分配
+<ul>
+<li>数学公式：EAR = max(0, 1 - |实际工时 - 预估工时| / max(预估工时, 1))</li>
+</ul>
+</li>
+<li><strong>需求现状概览(94)</strong>：监控概念验证过程，跟踪需求执行状态
+<ul>
+<li>数学公式：RPE = Σ(已完成需求故事点) / (总需求故事点 × 经过天数)</li>
+</ul>
+</li>
+</ul>
+<h3 id="系统设计与开发阶段">系统设计与开发阶段 </h3>
+<ul>
+<li><strong>代码提交趋势(20)</strong>：监控编码实现过程，衡量开发活跃度
+<ul>
+<li>数学公式：DEI = (有效提交次数 × 功能点数) / (开发人数 × 开发天数)</li>
+</ul>
+</li>
+<li><strong>代码问题趋势(1)</strong>：监控测试与质量保证过程，跟踪代码质量变化
+<ul>
+<li>数学公式：CQI = max(0, 1 - 缺陷密度/1000) × 代码覆盖率 × (1 - 重复率)</li>
+</ul>
+</li>
+</ul>
+<h3 id="部署与应用阶段">部署与应用阶段 </h3>
+<ul>
+<li><strong>运行按流水线排名(30)</strong>：监控软件部署过程，衡量部署频率
+<ul>
+<li>数学公式：DSR = 成功部署次数 / 总部署次数 × 100%</li>
+</ul>
+</li>
+<li><strong>需求交付速率(88)</strong>：监控用户反馈收集过程，评估交付效率
+<ul>
+<li>数学公式：Lead Time = 完成时间 - 创建时间</li>
+</ul>
+</li>
+</ul>
+<h3 id="维护与优化阶段">维护与优化阶段 </h3>
+<ul>
+<li><strong>新增缺陷趋势(44)</strong>：监控问题诊断与修复过程，跟踪缺陷发现趋势
+<ul>
+<li>数学公式：DFE = 已修复缺陷数 / 总缺陷数 × 100%</li>
+</ul>
+</li>
+<li><strong>缺陷修复速率(87)</strong>：监控性能优化过程，衡量修复效率
+<ul>
+<li>数学公式：MTTR = Σ故障恢复时间 / 故障次数</li>
+</ul>
+</li>
+</ul>
+<h3 id="持续改进与迭代阶段">持续改进与迭代阶段 </h3>
+<ul>
+<li><strong>新增需求趋势(45)</strong>：监控需求重新分析过程，跟踪新需求增长
+<ul>
+<li>数学公式：RSI = 1 - (变更需求数 / 总需求数)</li>
+</ul>
+</li>
+<li><strong>迭代燃尽图(4)</strong>：监控版本发布过程，跟踪迭代进度
+<ul>
+<li>数学公式：PHI = (进度达成率 + 质量达成率 + 成本控制率) / 3</li>
+</ul>
+</li>
+</ul>
+<p>这些指标体现了"过程度量"的核心思想，通过监控关键任务节点的效能指标，可以实时了解项目进展和质量状态，为决策提供数据支持。</p>
+
+      </div>
+      
+      
+    
+    
+    <script type="module">
+// TODO: If ZenUML gets integrated into mermaid in the future,
+//      we can remove the following lines.
+
+
+var MERMAID_CONFIG = ({"startOnLoad":false});
+if (typeof MERMAID_CONFIG !== 'undefined') {
+  MERMAID_CONFIG.startOnLoad = false
+  MERMAID_CONFIG.cloneCssStyles = false
+  MERMAID_CONFIG.theme = "default"
+}
+
+mermaid.initialize(MERMAID_CONFIG || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidetransitionend', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+} else {
+  await mermaid.run({
+    nodes: document.querySelectorAll('.mermaid')
+  })
+}
+</script>
+    
+    
+    
+  
+    </body></html>
